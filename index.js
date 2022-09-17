@@ -1,10 +1,10 @@
 import express from "express";
-import router from "./routes/universities.js";
+import controller from "./controllers/controller.js";
 import error from "./middlewares/error.js";
 
 const app = express();
 app.use(express.json());
-app.use("/universities", router);
+app.use("/universities", controller);
 
 app.use(error.errorLogger);
 app.use(error.errorResponser);
