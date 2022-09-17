@@ -1,0 +1,8 @@
+node_modules/
+.env
+example.json
+.npm
+.cache
+*.log
+npm-debug.log*
+.vscode-test
