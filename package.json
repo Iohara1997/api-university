@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "dev": "nodemon index.js -L"
   },
   "author": "",
@@ -17,6 +17,8 @@
     "mongoose": "^6.6.1"
   },
   "devDependencies": {
+    "jest": "^29.0.3",
+    "mockingoose": "^2.15.2",
     "nodemon": "^2.0.20"
   },
   "type": "module"

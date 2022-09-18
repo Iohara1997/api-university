@@ -30,7 +30,7 @@ async function listUniversity(req) {
   };
 
   response.limit = limit;
-  response.result = await universityRepository.get(
+  response.result = await universityRepository.getAll(
     query,
     universityProjection,
     limit,

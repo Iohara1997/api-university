@@ -1,6 +1,6 @@
 import University from "../models/university.js";
 
-async function get(query, universityProjection, limit, skip) {
+async function getAll(query, universityProjection, limit, skip) {
   return await University.find(query, universityProjection)
     .limit(limit)
     .skip(skip)
@@ -30,7 +30,7 @@ async function remove(id) {
 }
 
 export default {
-  get,
+  getAll,
   getById,
   create,
   update,
