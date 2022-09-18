@@ -1,19 +1,15 @@
-import { Router } from "express";
-import { validationBodyRules, checkRules } from "../middlewares/validator.js";
 import UniversityService from "../services/universityService.js";
 
-const router = Router();
-
-router.get("/", async (req, res, next) => {
+async function getUniversity(req, res, next) {
   try {
     const response = await UniversityService.listUniversity(req);
     res.status(200).send(response);
   } catch (error) {
     next(error);
   }
-});
+}
 
-router.get("/:id", async (req, res, next) => {
+async function getUniversityById(req, res, next) {
   try {
     const { id } = req.params;
     const response = await UniversityService.listByIdUniversity(id);
@@ -21,9 +17,9 @@ router.get("/:id", async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+}
 
-router.post("/", validationBodyRules, checkRules, async (req, res, next) => {
+async function saveUniversity(req, res, next) {
   try {
     const response = await UniversityService.createUniversity(req.body);
     res
@@ -32,18 +28,21 @@ router.post("/", validationBodyRules, checkRules, async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+}
 
-router.put("/:id", async (req, res, next) => {
+async function updateUniversity(req, res, next) {
   try {
-    const response = await UniversityService.updateUniversity(req);
+    const { id } = req.params;
+    const { web_pages, name, domains } = req.body;
+    const university = { web_pages, name, domains };
+    const response = await UniversityService.updateUniversity(id, university);
     res.status(200).send(response);
   } catch (error) {
     next(error);
   }
-});
+}
 
-router.delete("/:id", async (req, res, next) => {
+async function deleteUniversity(req, res, next) {
   try {
     const { id } = req.params;
     await UniversityService.deleteUniversity(id);
@@ -51,6 +50,12 @@ router.delete("/:id", async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+}
 
-export default router;
+export default {
+  getUniversity,
+  getUniversityById,
+  saveUniversity,
+  updateUniversity,
+  deleteUniversity,
+};

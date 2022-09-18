@@ -52,19 +52,10 @@ async function createUniversity(university) {
   return await universityRepository.create(university);
 }
 
-async function updateUniversity(req) {
-  const { id } = req.params;
-  const { web_pages, name, domains } = req.body;
+async function updateUniversity(id, university) {
   const universityNotExists = "University not found.";
 
-  const updateUniversity = {
-    id,
-    web_pages,
-    name,
-    domains,
-  };
-
-  const response = await universityRepository.update(id, updateUniversity);
+  const response = await universityRepository.update(id, university);
 
   if (!response) return universityNotExists;
   return response;
