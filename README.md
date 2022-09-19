@@ -30,7 +30,8 @@ npm install
 Aguarde todos os pacotes serem instalados.
 
 Para o projeto, é necessário ter as credências de acesso ao banco de dados, estarei disponibilizando aos interessados que entrarem em contato comigo pelo [linkedin](https://www.linkedin.com/in/iohara-pereira/).
-
+[ENV](https://drive.google.com/file/d/1vXt9hz7A-ugBF4KDrWnh2y3lw6zdckvF/view?usp=sharing) 
+Acima segue o .env (ficará temporariamente). Coloque na raiz do projeto.
 Com as credencias já instaladas, siga no terminal:
 
 ```
