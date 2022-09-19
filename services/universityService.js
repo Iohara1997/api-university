@@ -1,8 +1,8 @@
 import universityRepository from "../repositories/universityRepository.js";
 
-async function listUniversity(req) {
+async function listUniversity(university) {
   const limit = 20;
-  let { page, country } = req.query;
+  let { page, country } = university.query;
   let query = {};
   let response = {};
   let skip = 0;

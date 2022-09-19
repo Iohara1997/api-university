@@ -6,3 +6,4 @@ example.json
 *.log
 npm-debug.log*
 .vscode-test
+coverage/
